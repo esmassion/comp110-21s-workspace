@@ -21,26 +21,27 @@ from datetime import timedelta
 
 # Step 1 : name and structure the input variables
 population: int = int(input("Population: "))
-doses_administered: int = int(input("Doses administered: "))
+doses_ad: int = int(input("Doses administered: "))
 doses_per_day: int = int(input("Doses per day: "))
-percent_vaccinated: int = int(input("Target percent vaccinated: "))
+percent_vax: int = int(input("Target percent vaccinated: "))
 
 # Check todays date
 today: datetime = datetime.today()
 # print(today.strftime("%B %d, %Y"))
 
 # Step 2: calculate the number of days until the target day based on the goal of percent vaccinated
-days_til: int = int(round(2 * ((population * (percent_vaccinated / 100) - (doses_administered / 2)) / doses_per_day )))
+days_til: int = int(round(2 * ((population * (percent_vax / 100) - (doses_ad / 2)) / doses_per_day)))
 # print(days_til)
 
-days_til = str(days_til)
+days: str = str(days_til)
 # print(days_til)
+p_vax: str = str(percent_vax)
 
 # Step 3: Calculate the target date based on the formula for days til
-target_date: datetime = today + timedelta(int(days_til))
-# target_date: str(target_date)
-# print(target_date)
-# target date = target_date.strftime("%B %d, %Y")
-# target_date.strftime("%B %d, %Y")
+future: datetime = today + timedelta(int(days))
+# future: str(target_date)
+# print(future)
+# future = future.strftime("%B %d, %Y")
+# future.strftime("%B %d, %Y")
 
-print("We will reach " + str(percent_vaccinated) + "% vaccination in " + days_til + " days, which falls on " + target_date.strftime("%B %d, %Y"))
+print("We will reach " + p_vax + "% vaccination in " + days + " days, which falls on " + future.strftime("%B %d, %Y"))
